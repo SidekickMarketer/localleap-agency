@@ -5,31 +5,34 @@ export function Footer() {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="border-t border-stone-200 py-12">
-      <div className="max-w-3xl mx-auto px-6">
-        <div className="flex flex-col md:flex-row justify-between gap-8">
+    <footer className="bg-stone-900 text-stone-400 py-16">
+      <div className="max-w-6xl mx-auto px-6">
+        <div className="grid md:grid-cols-3 gap-12">
           {/* Brand */}
-          <div>
-            <Link href="/" className="font-medium text-stone-900">
+          <div className="md:col-span-2">
+            <Link href="/" className="font-semibold text-lg text-white">
               {siteConfig.name}
             </Link>
-            <p className="text-stone-500 text-sm mt-2 max-w-xs">
+            <p className="mt-4 max-w-md leading-relaxed">
               {siteConfig.description}
+            </p>
+            <p className="mt-6 text-sm">
+              &copy; {currentYear} {siteConfig.name}. All rights reserved.
             </p>
           </div>
 
           {/* Links */}
-          <div className="flex gap-12">
+          <div className="grid grid-cols-2 gap-8">
             <div>
-              <div className="text-xs uppercase tracking-wide text-stone-400 mb-3">
-                Pages
+              <div className="text-xs uppercase tracking-wider text-stone-500 mb-4 font-medium">
+                Navigation
               </div>
-              <div className="flex flex-col gap-2">
+              <div className="flex flex-col gap-3">
                 {navigation.map((item) => (
                   <Link
                     key={item.title}
                     href={item.href}
-                    className="text-stone-600 hover:text-stone-900 text-sm transition-colors"
+                    className="hover:text-white transition-colors text-sm"
                   >
                     {item.title}
                   </Link>
@@ -38,23 +41,19 @@ export function Footer() {
             </div>
 
             <div>
-              <div className="text-xs uppercase tracking-wide text-stone-400 mb-3">
+              <div className="text-xs uppercase tracking-wider text-stone-500 mb-4 font-medium">
                 Contact
               </div>
-              <div className="flex flex-col gap-2 text-sm">
+              <div className="flex flex-col gap-3 text-sm">
                 <a
                   href={`mailto:${founderInfo.email}`}
-                  className="text-stone-600 hover:text-stone-900 transition-colors"
+                  className="hover:text-white transition-colors"
                 >
                   {founderInfo.email}
                 </a>
               </div>
             </div>
           </div>
-        </div>
-
-        <div className="mt-12 pt-6 border-t border-stone-200 text-stone-400 text-sm">
-          &copy; {currentYear} {siteConfig.name}
         </div>
       </div>
     </footer>

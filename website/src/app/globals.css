@@ -1,7 +1,7 @@
 @import "tailwindcss";
 
 @theme inline {
-  /* Warm neutral palette - feels trustworthy, not startup-y */
+  /* Warm neutral palette */
   --color-stone-50: #fafaf9;
   --color-stone-100: #f5f5f4;
   --color-stone-200: #e7e5e4;
@@ -13,12 +13,21 @@
   --color-stone-800: #292524;
   --color-stone-900: #1c1917;
 
-  /* Single accent - warm amber, not tech-blue */
-  --color-accent-500: #b45309;
-  --color-accent-600: #92400e;
-  --color-accent-700: #78350f;
+  /* Warm accent - terracotta/rust */
+  --color-accent-50: #fef2f2;
+  --color-accent-100: #fee2e2;
+  --color-accent-200: #fecaca;
+  --color-accent-500: #c2410c;
+  --color-accent-600: #9a3412;
+  --color-accent-700: #7c2d12;
 
-  /* Font families - editorial feel */
+  /* Complementary blue for contrast */
+  --color-slate-600: #475569;
+  --color-slate-700: #334155;
+  --color-slate-800: #1e293b;
+  --color-slate-900: #0f172a;
+
+  /* Font families */
   --font-sans: "Inter", system-ui, sans-serif;
   --font-serif: "Georgia", "Times New Roman", serif;
 }
@@ -33,22 +42,38 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   color: var(--color-stone-800);
-  background-color: var(--color-stone-50);
+  background-color: white;
 }
 
-/* Editorial typography */
+/* Utility classes */
 .font-serif {
   font-family: var(--font-serif);
 }
 
-/* Simple link underline style */
-.link-underline {
+/* Subtle pattern background */
+.bg-pattern {
+  background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23d6d3d1' fill-opacity='0.2'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+}
+
+/* Card hover effect */
+.card-hover {
+  transition: all 0.2s ease;
+}
+
+.card-hover:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 24px -8px rgba(0, 0, 0, 0.1);
+}
+
+/* Link styles */
+.link-accent {
+  color: var(--color-accent-600);
   text-decoration: underline;
-  text-decoration-color: var(--color-stone-300);
+  text-decoration-color: var(--color-accent-200);
   text-underline-offset: 4px;
   transition: text-decoration-color 0.2s;
 }
 
-.link-underline:hover {
-  text-decoration-color: var(--color-stone-800);
+.link-accent:hover {
+  text-decoration-color: var(--color-accent-600);
 }
