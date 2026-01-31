@@ -1,0 +1,10 @@
+export { Hero } from './hero';
+export { TrustBadges } from './trust-badges';
+export { Problems } from './problems';
+export { Services } from './services';
+export { Results } from './results';
+export { Process } from './process';
+export { Pricing } from './pricing';
+export { Testimonials } from './testimonials';
+export { FAQ } from './faq';
+export { Contact } from './contact';
