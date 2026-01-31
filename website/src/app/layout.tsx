@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import { Inter } from 'next/font/google';
+import { Inter, Lora } from 'next/font/google';
 import './globals.css';
 import { Header, Footer } from '@/components/layout';
 import { siteConfig } from '@/lib/config';
@@ -7,6 +7,11 @@ import { siteConfig } from '@/lib/config';
 const inter = Inter({
   subsets: ['latin'],
   variable: '--font-inter',
+});
+
+const lora = Lora({
+  subsets: ['latin'],
+  variable: '--font-lora',
 });
 
 export const metadata: Metadata = {
@@ -38,7 +43,6 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: siteConfig.name,
     description: siteConfig.description,
-    creator: '@localleap',
   },
   robots: {
     index: true,
@@ -52,8 +56,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={inter.variable}>
-      <body className="font-sans antialiased bg-white text-gray-900">
+    <html lang="en" className={`${inter.variable} ${lora.variable}`}>
+      <body className="font-sans antialiased bg-white text-stone-900">
         <Header />
         <main>{children}</main>
         <Footer />
