@@ -8,10 +8,10 @@ import { Button, Container } from '@/components/ui';
 import { siteConfig } from '@/lib/config';
 
 const navigation = [
-  { name: 'Services', href: '#services' },
-  { name: 'Results', href: '#results' },
-  { name: 'Process', href: '#process' },
-  { name: 'Pricing', href: '#pricing' },
+  { name: 'Services', href: '/services' },
+  { name: 'Results', href: '/results' },
+  { name: 'Pricing', href: '/pricing' },
+  { name: 'About', href: '/about' },
 ];
 
 export function Header() {
@@ -58,7 +58,7 @@ export function Header() {
                 {item.name}
               </Link>
             ))}
-            <Button href="#contact" size="sm">
+            <Button href="/contact" size="sm">
               Free Strategy Call
             </Button>
           </div>
@@ -91,7 +91,7 @@ export function Header() {
                   {item.name}
                 </Link>
               ))}
-              <Button href="#contact" className="w-full">
+              <Button href="/contact" className="w-full">
                 Free Strategy Call
               </Button>
             </div>

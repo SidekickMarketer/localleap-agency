@@ -4,17 +4,20 @@ import { Container } from '@/components/ui';
 import { siteConfig } from '@/lib/config';
 
 const quickLinks = [
-  { name: 'Services', href: '#services' },
-  { name: 'Results', href: '#results' },
-  { name: 'Pricing', href: '#pricing' },
-  { name: 'Contact', href: '#contact' },
+  { name: 'Services', href: '/services' },
+  { name: 'Results', href: '/results' },
+  { name: 'Pricing', href: '/pricing' },
+  { name: 'About', href: '/about' },
+  { name: 'Contact', href: '/contact' },
 ];
 
 const services = [
-  { name: 'Google Ads', href: '#services' },
-  { name: 'Local SEO', href: '#services' },
-  { name: 'Social Media', href: '#services' },
-  { name: 'Website Design', href: '#services' },
+  { name: 'Google Ads', href: '/services/google-ads' },
+  { name: 'Local SEO', href: '/services/local-seo' },
+  { name: 'Social Media', href: '/services/social-media' },
+  { name: 'Meta Ads', href: '/services/meta-ads' },
+  { name: 'Email Marketing', href: '/services/email-marketing' },
+  { name: 'Website Design', href: '/services/website-design' },
 ];
 
 export function Footer() {
