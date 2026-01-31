@@ -1,207 +1,127 @@
 import { Metadata } from 'next';
-import { Check, X } from 'lucide-react';
-import { Section, SectionHeader, Container, Button } from '@/components/ui';
-import { FAQ, Contact } from '@/components/sections';
-import { defaultContent } from '@/lib/config';
-import { cn } from '@/lib/utils';
+import Link from 'next/link';
+import { ArrowRight } from 'lucide-react';
+import { faqs } from '@/lib/config';
 
 export const metadata: Metadata = {
   title: 'Pricing',
-  description: 'Transparent pricing for local business marketing services. No hidden fees, no long-term contracts. See our packages starting at $1,500/month.',
+  description: 'Straightforward pricing for local business marketing. No hidden fees, no long-term contracts.',
 };
-
-const packages = [
-  {
-    name: 'Starter',
-    price: 1500,
-    description: 'Perfect for businesses just getting started with digital marketing.',
-    features: [
-      { text: 'Google Business Profile management', included: true },
-      { text: '12 social posts/month (2 platforms)', included: true },
-      { text: 'Monthly performance report', included: true },
-      { text: 'Email support', included: true },
-      { text: 'Google Ads management', included: false },
-      { text: 'Local SEO campaign', included: false },
-      { text: 'Strategy calls', included: false },
-    ],
-    cta: 'Get Started',
-    highlighted: false,
-  },
-  {
-    name: 'Growth',
-    price: 2500,
-    description: 'Our most popular package for businesses ready to grow.',
-    features: [
-      { text: 'Everything in Starter, plus:', included: true },
-      { text: 'Google Ads management', included: true },
-      { text: 'Local SEO campaign', included: true },
-      { text: '20 social posts/month (3 platforms)', included: true },
-      { text: '1 blog post/month', included: true },
-      { text: 'Bi-weekly strategy calls', included: true },
-      { text: 'Meta Ads management', included: false },
-    ],
-    cta: 'Get Started',
-    highlighted: true,
-    highlightLabel: 'MOST POPULAR',
-  },
-  {
-    name: 'Scale',
-    price: 4000,
-    description: 'For businesses ready to dominate their market.',
-    features: [
-      { text: 'Everything in Growth, plus:', included: true },
-      { text: 'Meta Ads (Facebook/Instagram)', included: true },
-      { text: '30 social posts/month', included: true },
-      { text: '4 blog posts/month', included: true },
-      { text: 'Email marketing (2 campaigns/mo)', included: true },
-      { text: 'Weekly strategy calls', included: true },
-      { text: 'Priority support', included: true },
-    ],
-    cta: 'Get Started',
-    highlighted: false,
-  },
-];
-
-const oneTimeServices = [
-  { name: 'Website Design (5-7 pages)', price: '$3,000 - $5,000' },
-  { name: 'Website Design (10+ pages)', price: '$5,000 - $8,000' },
-  { name: 'Brand Identity Package', price: '$1,500 - $2,500' },
-  { name: 'Marketing Audit', price: '$500' },
-  { name: 'Google Ads Setup (one-time)', price: '$750' },
-  { name: 'Social Media Setup', price: '$500' },
-];
-
-const faqs = [
-  {
-    _id: '1',
-    question: 'What\'s included in ad spend?',
-    answer: 'Our fees cover strategy, management, and optimization. Ad spend (what you pay Google or Meta directly) is separate and paid by you to the platforms. We typically recommend starting with $1,000-2,000/month in ad spend.',
-  },
-  {
-    _id: '2',
-    question: 'Do you require long-term contracts?',
-    answer: 'We have a 3-month minimum commitment to allow enough time to show results. After that, it\'s month-to-month with 30-day cancellation notice. We believe in earning your business every month.',
-  },
-  {
-    _id: '3',
-    question: 'Can I upgrade or downgrade my plan?',
-    answer: 'Yes! You can change your plan at any time with 30 days notice. We\'ll help you transition smoothly.',
-  },
-  {
-    _id: '4',
-    question: 'What if I need something not listed?',
-    answer: 'We offer custom packages for businesses with unique needs. Contact us and we\'ll create a proposal tailored to your goals.',
-  },
-];
 
 export default function PricingPage() {
   return (
-    <>
-      {/* Hero */}
-      <section className="pt-32 pb-16 lg:pt-40 lg:pb-20 bg-gradient-to-br from-gray-50 to-white">
-        <Container>
-          <div className="max-w-3xl mx-auto text-center">
-            <h1 className="text-4xl sm:text-5xl font-extrabold mb-6">
-              Simple,{' '}
-              <span className="bg-gradient-to-r from-primary-500 to-accent-500 bg-clip-text text-transparent">
-                Transparent Pricing
-              </span>
-            </h1>
-            <p className="text-xl text-gray-600 mb-8">
-              No hidden fees. No long-term contracts. No surprises.
-              Choose the package that fits your goals and budget.
-            </p>
+    <main>
+      <section className="pt-32 pb-16 lg:pt-40">
+        <div className="max-w-3xl mx-auto px-6">
+          <h1 className="text-4xl font-serif text-stone-900 mb-6">
+            Pricing
+          </h1>
+          <p className="text-xl text-stone-600 mb-12 leading-relaxed">
+            Pricing depends on what you need. I don't do one-size-fits-all packages—every
+            business is different, and your marketing should reflect that.
+          </p>
+
+          <div className="space-y-8">
+            <div className="border border-stone-200 rounded p-6">
+              <h2 className="text-lg font-medium text-stone-900 mb-4">
+                Ongoing Marketing
+              </h2>
+              <p className="text-stone-600 mb-4">
+                Most clients spend <strong className="text-stone-900">$1,500 - $3,000/month</strong> for
+                ongoing marketing work. This includes a combination of services based on what
+                makes sense for your business—could be Google Ads, SEO, social media, or all three.
+              </p>
+              <p className="text-stone-500 text-sm">
+                3-month minimum, then month-to-month. Ad spend is separate and paid directly to the platforms.
+              </p>
+            </div>
+
+            <div className="border border-stone-200 rounded p-6">
+              <h2 className="text-lg font-medium text-stone-900 mb-4">
+                Website Design
+              </h2>
+              <p className="text-stone-600 mb-4">
+                A new website runs <strong className="text-stone-900">$3,000 - $6,000</strong> depending
+                on how many pages you need and how complex the design is. Simple 5-page sites
+                are on the lower end; larger sites with custom features cost more.
+              </p>
+              <p className="text-stone-500 text-sm">
+                One-time project. Includes basic SEO setup and a site you can update yourself.
+              </p>
+            </div>
+
+            <div className="border border-stone-200 rounded p-6">
+              <h2 className="text-lg font-medium text-stone-900 mb-4">
+                Not sure yet?
+              </h2>
+              <p className="text-stone-600 mb-4">
+                That's fine. We can have a conversation about your business first. I'll tell you
+                what I'd recommend and give you a specific quote—no obligation to move forward.
+              </p>
+            </div>
           </div>
-        </Container>
+
+          <div className="mt-12 pt-8 border-t border-stone-200">
+            <h2 className="text-2xl font-serif text-stone-900 mb-4">
+              How I charge
+            </h2>
+            <ul className="space-y-4 text-stone-600">
+              <li className="flex items-start gap-3">
+                <span className="text-stone-400">-</span>
+                <span>
+                  <strong className="text-stone-900">No long-term contracts.</strong> After
+                  the initial 3 months, you can cancel anytime with 30 days notice.
+                </span>
+              </li>
+              <li className="flex items-start gap-3">
+                <span className="text-stone-400">-</span>
+                <span>
+                  <strong className="text-stone-900">No hidden fees.</strong> The price I quote
+                  is the price you pay. Ad spend is separate and goes directly to Google/Meta.
+                </span>
+              </li>
+              <li className="flex items-start gap-3">
+                <span className="text-stone-400">-</span>
+                <span>
+                  <strong className="text-stone-900">You own everything.</strong> Your accounts,
+                  your content, your website—it's all yours even if we stop working together.
+                </span>
+              </li>
+            </ul>
+          </div>
+
+          <div className="mt-12">
+            <Link
+              href="/contact"
+              className="inline-flex items-center px-6 py-3 bg-stone-900 text-white rounded hover:bg-stone-800 transition-colors"
+            >
+              Let's discuss your project
+              <ArrowRight className="ml-2 w-4 h-4" />
+            </Link>
+          </div>
+        </div>
       </section>
 
-      {/* Pricing Cards */}
-      <Section>
-        <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
-          {packages.map((pkg) => (
-            <div
-              key={pkg.name}
-              className={cn(
-                'rounded-2xl p-8 relative',
-                pkg.highlighted
-                  ? 'bg-gray-900 text-white scale-105'
-                  : 'bg-white border border-gray-200',
-                'transition-all duration-200'
-              )}
-            >
-              {pkg.highlighted && pkg.highlightLabel && (
-                <div className="absolute -top-4 left-1/2 -translate-x-1/2 bg-gradient-to-r from-primary-500 to-accent-500 text-white text-sm font-medium px-4 py-1 rounded-full">
-                  {pkg.highlightLabel}
-                </div>
-              )}
-
-              <div className={cn('text-sm font-medium mb-2', pkg.highlighted ? 'text-gray-400' : 'text-gray-500')}>
-                {pkg.name.toUpperCase()}
-              </div>
-
-              <div className="mb-6">
-                <span className="text-4xl font-bold">${pkg.price.toLocaleString()}</span>
-                <span className={pkg.highlighted ? 'text-gray-400' : 'text-gray-500'}>/month</span>
-              </div>
-
-              <p className={cn('mb-6', pkg.highlighted ? 'text-gray-400' : 'text-gray-600')}>
-                {pkg.description}
-              </p>
-
-              <ul className="space-y-3 mb-8">
-                {pkg.features.map((feature, index) => (
-                  <li key={index} className="flex items-start gap-3">
-                    {feature.included ? (
-                      <Check className={cn('w-5 h-5 mt-0.5 flex-shrink-0', pkg.highlighted ? 'text-green-400' : 'text-green-500')} />
-                    ) : (
-                      <X className="w-5 h-5 mt-0.5 flex-shrink-0 text-gray-400" />
-                    )}
-                    <span className={!feature.included ? 'text-gray-400' : ''}>{feature.text}</span>
-                  </li>
-                ))}
-              </ul>
-
-              <Button
-                href="/contact"
-                variant={pkg.highlighted ? 'primary' : 'secondary'}
-                className="w-full"
-              >
-                {pkg.cta}
-              </Button>
-            </div>
-          ))}
-        </div>
-      </Section>
-
-      {/* One-Time Services */}
-      <Section background="gray">
-        <SectionHeader
-          title="One-Time Services"
-          subtitle="Project-based work with fixed pricing."
-        />
-        <div className="max-w-2xl mx-auto">
-          <div className="bg-white rounded-xl overflow-hidden">
-            {oneTimeServices.map((service, index) => (
-              <div
-                key={index}
-                className={cn(
-                  'flex justify-between items-center p-4',
-                  index !== oneTimeServices.length - 1 && 'border-b border-gray-100'
-                )}
-              >
-                <span className="font-medium">{service.name}</span>
-                <span className="text-gray-600">{service.price}</span>
+      {/* FAQ */}
+      <section className="py-16 border-t border-stone-200 bg-stone-100">
+        <div className="max-w-3xl mx-auto px-6">
+          <h2 className="text-2xl font-serif text-stone-900 mb-8">
+            Common questions
+          </h2>
+          <div className="space-y-6">
+            {faqs.map((faq, index) => (
+              <div key={index} className="border-b border-stone-200 pb-6 last:border-0">
+                <h3 className="font-medium text-stone-900 mb-2">
+                  {faq.question}
+                </h3>
+                <p className="text-stone-600">
+                  {faq.answer}
+                </p>
               </div>
             ))}
           </div>
         </div>
-      </Section>
-
-      {/* FAQ */}
-      <FAQ title="Pricing FAQs" faqs={faqs} />
-
-      {/* CTA */}
-      <Contact />
-    </>
+      </section>
+    </main>
   );
 }

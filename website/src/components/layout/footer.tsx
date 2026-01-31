@@ -1,83 +1,62 @@
 import Link from 'next/link';
-import { TrendingUp } from 'lucide-react';
-import { Container } from '@/components/ui';
-import { siteConfig } from '@/lib/config';
-
-const quickLinks = [
-  { name: 'Services', href: '/services' },
-  { name: 'Results', href: '/results' },
-  { name: 'Pricing', href: '/pricing' },
-  { name: 'About', href: '/about' },
-  { name: 'Contact', href: '/contact' },
-];
-
-const services = [
-  { name: 'Google Ads', href: '/services/google-ads' },
-  { name: 'Local SEO', href: '/services/local-seo' },
-  { name: 'Social Media', href: '/services/social-media' },
-  { name: 'Meta Ads', href: '/services/meta-ads' },
-  { name: 'Email Marketing', href: '/services/email-marketing' },
-  { name: 'Website Design', href: '/services/website-design' },
-];
+import { siteConfig, founderInfo, navigation } from '@/lib/config';
 
 export function Footer() {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="bg-gray-900 text-gray-400 py-12">
-      <Container>
-        <div className="grid md:grid-cols-4 gap-8">
+    <footer className="border-t border-stone-200 py-12">
+      <div className="max-w-3xl mx-auto px-6">
+        <div className="flex flex-col md:flex-row justify-between gap-8">
           {/* Brand */}
-          <div className="md:col-span-2">
-            <Link href="/" className="flex items-center space-x-2 mb-4">
-              <div className="w-8 h-8 bg-gradient-to-r from-primary-500 to-accent-500 rounded-lg flex items-center justify-center">
-                <TrendingUp className="w-5 h-5 text-white" />
-              </div>
-              <span className="font-bold text-xl text-white">
-                {siteConfig.name}
-              </span>
+          <div>
+            <Link href="/" className="font-medium text-stone-900">
+              {siteConfig.name}
             </Link>
-            <p className="mb-4 max-w-md">{siteConfig.description}</p>
-            <p className="text-sm">
-              &copy; {currentYear} {siteConfig.name}. All rights reserved.
+            <p className="text-stone-500 text-sm mt-2 max-w-xs">
+              {siteConfig.description}
             </p>
           </div>
 
-          {/* Quick Links */}
-          <div>
-            <h4 className="text-white font-semibold mb-4">Quick Links</h4>
-            <ul className="space-y-2">
-              {quickLinks.map((link) => (
-                <li key={link.name}>
+          {/* Links */}
+          <div className="flex gap-12">
+            <div>
+              <div className="text-xs uppercase tracking-wide text-stone-400 mb-3">
+                Pages
+              </div>
+              <div className="flex flex-col gap-2">
+                {navigation.map((item) => (
                   <Link
-                    href={link.href}
-                    className="hover:text-white transition-colors"
+                    key={item.title}
+                    href={item.href}
+                    className="text-stone-600 hover:text-stone-900 text-sm transition-colors"
                   >
-                    {link.name}
+                    {item.title}
                   </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
+                ))}
+              </div>
+            </div>
 
-          {/* Services */}
-          <div>
-            <h4 className="text-white font-semibold mb-4">Services</h4>
-            <ul className="space-y-2">
-              {services.map((link) => (
-                <li key={link.name}>
-                  <Link
-                    href={link.href}
-                    className="hover:text-white transition-colors"
-                  >
-                    {link.name}
-                  </Link>
-                </li>
-              ))}
-            </ul>
+            <div>
+              <div className="text-xs uppercase tracking-wide text-stone-400 mb-3">
+                Contact
+              </div>
+              <div className="flex flex-col gap-2 text-sm">
+                <a
+                  href={`mailto:${founderInfo.email}`}
+                  className="text-stone-600 hover:text-stone-900 transition-colors"
+                >
+                  {founderInfo.email}
+                </a>
+              </div>
+            </div>
           </div>
         </div>
-      </Container>
+
+        <div className="mt-12 pt-6 border-t border-stone-200 text-stone-400 text-sm">
+          &copy; {currentYear} {siteConfig.name}
+        </div>
+      </div>
     </footer>
   );
 }

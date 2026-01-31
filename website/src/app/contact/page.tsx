@@ -1,122 +1,162 @@
 import { Metadata } from 'next';
-import { Mail, Phone, Clock } from 'lucide-react';
-import { Section, Container } from '@/components/ui';
-import { Contact as ContactForm } from '@/components/sections';
+import { founderInfo, faqs } from '@/lib/config';
 
 export const metadata: Metadata = {
-  title: 'Contact Us',
-  description: 'Get in touch for a free strategy call. We\'ll audit your current marketing and show you exactly how to get more customers.',
+  title: 'Contact',
+  description: 'Get in touch to talk about your business and how I can help you get more customers.',
 };
-
-const contactInfo = [
-  {
-    icon: Mail,
-    label: 'Email',
-    value: 'hello@localleap.com',
-    href: 'mailto:hello@localleap.com',
-  },
-  {
-    icon: Phone,
-    label: 'Phone',
-    value: '(555) 123-4567',
-    href: 'tel:+15551234567',
-  },
-  {
-    icon: Clock,
-    label: 'Response Time',
-    value: 'Within 24 hours',
-    href: null,
-  },
-];
 
 export default function ContactPage() {
   return (
-    <>
-      {/* Hero */}
-      <section className="pt-32 pb-8 lg:pt-40 lg:pb-12 bg-gradient-to-br from-gray-50 to-white">
-        <Container>
-          <div className="max-w-3xl mx-auto text-center">
-            <h1 className="text-4xl sm:text-5xl font-extrabold mb-6">
-              Let's{' '}
-              <span className="bg-gradient-to-r from-primary-500 to-accent-500 bg-clip-text text-transparent">
-                Talk
-              </span>
-            </h1>
-            <p className="text-xl text-gray-600">
-              Ready to get more customers? Book a free strategy call and we'll show you
-              exactly how to grow your business with digital marketing.
-            </p>
+    <main>
+      <section className="pt-32 pb-16 lg:pt-40">
+        <div className="max-w-3xl mx-auto px-6">
+          <h1 className="text-4xl font-serif text-stone-900 mb-6">
+            Let's talk
+          </h1>
+          <p className="text-xl text-stone-600 mb-12 leading-relaxed">
+            Want to chat about your business? I'm happy to have a conversation—no pitch,
+            no pressure. Just reach out and tell me a bit about what you're working on.
+          </p>
+
+          <div className="grid md:grid-cols-2 gap-12">
+            {/* Contact Info */}
+            <div>
+              <h2 className="text-lg font-medium text-stone-900 mb-4">
+                Get in touch
+              </h2>
+              <div className="space-y-4 text-stone-600">
+                <div>
+                  <div className="text-sm text-stone-400 mb-1">Email</div>
+                  <a
+                    href={`mailto:${founderInfo.email}`}
+                    className="hover:text-stone-900 transition-colors"
+                  >
+                    {founderInfo.email}
+                  </a>
+                </div>
+                {founderInfo.phone && (
+                  <div>
+                    <div className="text-sm text-stone-400 mb-1">Phone</div>
+                    <a
+                      href={`tel:${founderInfo.phone}`}
+                      className="hover:text-stone-900 transition-colors"
+                    >
+                      {founderInfo.phone}
+                    </a>
+                  </div>
+                )}
+                {founderInfo.calendlyUrl && (
+                  <div>
+                    <div className="text-sm text-stone-400 mb-1">Book a call</div>
+                    <a
+                      href={founderInfo.calendlyUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="hover:text-stone-900 transition-colors"
+                    >
+                      Schedule on Calendly
+                    </a>
+                  </div>
+                )}
+              </div>
+
+              <div className="mt-8 p-6 bg-stone-100 rounded">
+                <h3 className="font-medium text-stone-900 mb-2">
+                  What to expect
+                </h3>
+                <p className="text-stone-600 text-sm">
+                  I'll get back to you within a day or two. If it seems like we might
+                  be a good fit, we'll set up a call to discuss your business in more detail.
+                </p>
+              </div>
+            </div>
+
+            {/* Simple Contact Form */}
+            <div>
+              <h2 className="text-lg font-medium text-stone-900 mb-4">
+                Send a message
+              </h2>
+              <form className="space-y-4">
+                <div>
+                  <label htmlFor="name" className="block text-sm text-stone-600 mb-1">
+                    Name
+                  </label>
+                  <input
+                    type="text"
+                    id="name"
+                    name="name"
+                    required
+                    className="w-full px-4 py-2 border border-stone-300 rounded focus:outline-none focus:border-stone-500 transition-colors"
+                  />
+                </div>
+                <div>
+                  <label htmlFor="email" className="block text-sm text-stone-600 mb-1">
+                    Email
+                  </label>
+                  <input
+                    type="email"
+                    id="email"
+                    name="email"
+                    required
+                    className="w-full px-4 py-2 border border-stone-300 rounded focus:outline-none focus:border-stone-500 transition-colors"
+                  />
+                </div>
+                <div>
+                  <label htmlFor="business" className="block text-sm text-stone-600 mb-1">
+                    What kind of business do you run?
+                  </label>
+                  <input
+                    type="text"
+                    id="business"
+                    name="business"
+                    placeholder="e.g., Dental practice in Austin"
+                    className="w-full px-4 py-2 border border-stone-300 rounded focus:outline-none focus:border-stone-500 transition-colors"
+                  />
+                </div>
+                <div>
+                  <label htmlFor="message" className="block text-sm text-stone-600 mb-1">
+                    What would you like help with?
+                  </label>
+                  <textarea
+                    id="message"
+                    name="message"
+                    rows={4}
+                    className="w-full px-4 py-2 border border-stone-300 rounded focus:outline-none focus:border-stone-500 transition-colors resize-none"
+                  />
+                </div>
+                <button
+                  type="submit"
+                  className="w-full px-6 py-3 bg-stone-900 text-white rounded hover:bg-stone-800 transition-colors"
+                >
+                  Send message
+                </button>
+              </form>
+            </div>
           </div>
-        </Container>
+        </div>
       </section>
 
-      {/* Contact Info */}
-      <Section>
-        <div className="max-w-4xl mx-auto">
-          <div className="grid md:grid-cols-3 gap-8 mb-12">
-            {contactInfo.map((item, index) => (
-              <div key={index} className="text-center">
-                <div className="w-12 h-12 bg-primary-100 rounded-xl flex items-center justify-center mx-auto mb-4">
-                  <item.icon className="w-6 h-6 text-primary-600" />
-                </div>
-                <div className="text-sm text-gray-500 mb-1">{item.label}</div>
-                {item.href ? (
-                  <a
-                    href={item.href}
-                    className="font-medium text-gray-900 hover:text-primary-600 transition-colors"
-                  >
-                    {item.value}
-                  </a>
-                ) : (
-                  <div className="font-medium text-gray-900">{item.value}</div>
-                )}
+      {/* FAQ */}
+      <section className="py-16 border-t border-stone-200 bg-stone-100">
+        <div className="max-w-3xl mx-auto px-6">
+          <h2 className="text-2xl font-serif text-stone-900 mb-8">
+            Common questions
+          </h2>
+          <div className="space-y-6">
+            {faqs.map((faq, index) => (
+              <div key={index} className="border-b border-stone-200 pb-6 last:border-0">
+                <h3 className="font-medium text-stone-900 mb-2">
+                  {faq.question}
+                </h3>
+                <p className="text-stone-600">
+                  {faq.answer}
+                </p>
               </div>
             ))}
           </div>
         </div>
-      </Section>
-
-      {/* Contact Form */}
-      <ContactForm
-        title="Book Your Free Strategy Call"
-        subtitle="Fill out the form below and we'll reach out within 24 hours to schedule your call."
-      />
-
-      {/* What to Expect */}
-      <Section background="gray">
-        <div className="max-w-3xl mx-auto text-center">
-          <h2 className="text-2xl font-bold mb-8">What to Expect</h2>
-          <div className="grid md:grid-cols-3 gap-8 text-left">
-            <div>
-              <div className="w-10 h-10 bg-primary-500 text-white rounded-full flex items-center justify-center font-bold mb-4">
-                1
-              </div>
-              <h3 className="font-bold mb-2">We Listen</h3>
-              <p className="text-gray-600 text-sm">
-                We'll learn about your business, goals, and current marketing challenges.
-              </p>
-            </div>
-            <div>
-              <div className="w-10 h-10 bg-primary-500 text-white rounded-full flex items-center justify-center font-bold mb-4">
-                2
-              </div>
-              <h3 className="font-bold mb-2">We Audit</h3>
-              <p className="text-gray-600 text-sm">
-                We'll review your online presence and identify opportunities for improvement.
-              </p>
-            </div>
-            <div>
-              <div className="w-10 h-10 bg-primary-500 text-white rounded-full flex items-center justify-center font-bold mb-4">
-                3
-              </div>
-              <h3 className="font-bold mb-2">We Recommend</h3>
-              <p className="text-gray-600 text-sm">
-                We'll share specific, actionable recommendations—whether you hire us or not.
-              </p>
-            </div>
-          </div>
-        </div>
-      </Section>
-    </>
+      </section>
+    </main>
   );
 }

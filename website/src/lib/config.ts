@@ -3,297 +3,145 @@ import type { SiteConfig } from '@/types';
 export const siteConfig: SiteConfig = {
   name: 'LocalLeap',
   description:
-    'We help local service businesses get more customers through proven digital marketing strategies. Google Ads, SEO, Social Media, and more.',
+    'I help local service businesses get more customers through digital marketing that actually works.',
   url: process.env.NEXT_PUBLIC_SITE_URL || 'https://localleap.com',
   ogImage: '/og-image.jpg',
   links: {
-    twitter: 'https://twitter.com/localleap',
-    linkedin: 'https://linkedin.com/company/localleap',
-    facebook: 'https://facebook.com/localleap',
-    instagram: 'https://instagram.com/localleap',
+    twitter: '', // Add your Twitter/X if you have one
+    linkedin: '', // Add your LinkedIn
   },
+};
+
+// Your info - REPLACE THESE WITH YOUR REAL DETAILS
+export const founderInfo = {
+  name: '[YOUR NAME]', // e.g., "Kyle Naughtrip"
+  email: 'hello@localleap.com',
+  phone: '', // Optional: your business phone
+  location: '', // e.g., "Austin, TX" or leave blank
+  calendlyUrl: '', // Your Calendly or Cal.com link for booking calls
+  linkedinUrl: '',
+  twitterUrl: '',
 };
 
 export const navigation = [
-  { title: 'Services', href: '#services' },
-  { title: 'Results', href: '#results' },
-  { title: 'Process', href: '#process' },
-  { title: 'Pricing', href: '#pricing' },
+  { title: 'Services', href: '/services' },
+  { title: 'Pricing', href: '/pricing' },
+  { title: 'About', href: '/about' },
+  { title: 'Contact', href: '/contact' },
 ];
 
-// Default content for when Sanity is not connected
-export const defaultContent = {
-  hero: {
-    badge: 'Now accepting new clients',
-    headline: 'Get More Customers.',
-    highlightedText: 'Guaranteed.',
-    subheadline:
-      'We help local service businesses dominate their market with proven digital marketing strategies. No fluff. No long-term contracts. Just results.',
-    primaryCta: {
-      text: 'Get Your Free Strategy Session',
-      href: '#contact',
-    },
-    secondaryCta: {
-      text: 'See Our Results',
-      href: '#results',
-    },
-    features: ['No long-term contracts', 'Results in 30 days'],
+// Services you actually offer
+export const services = [
+  {
+    title: 'Google Ads',
+    slug: 'google-ads',
+    shortDescription: 'Get in front of people actively searching for your services.',
+    description:
+      'When someone searches "dentist near me" or "emergency plumber," you want to be the first result they see. I set up and manage Google Ads campaigns that put you there.',
+    whatYouGet: [
+      'Campaign setup and structure',
+      'Keyword research for your specific market',
+      'Ad copywriting that converts',
+      'Ongoing optimization and testing',
+      'Monthly reporting on what\'s working',
+    ],
   },
-  services: [
-    {
-      _id: '1',
-      title: 'Google Ads Management',
-      description:
-        'Show up at the exact moment customers search for your services. We manage your campaigns for maximum ROI.',
-      icon: 'Search',
-      features: [
-        'Keyword research & strategy',
-        'Ad copywriting & testing',
-        'Conversion tracking',
-      ],
-    },
-    {
-      _id: '2',
-      title: 'Local SEO',
-      description:
-        'Rank #1 in Google Maps and local searches. We optimize your presence so customers find you first.',
-      icon: 'MapPin',
-      features: [
-        'Google Business Profile optimization',
-        'Citation building',
-        'Review management',
-      ],
-    },
-    {
-      _id: '3',
-      title: 'Social Media Management',
-      description:
-        'Stay top of mind with consistent, engaging content. We handle everything from strategy to posting.',
-      icon: 'Share2',
-      features: [
-        'Content creation & design',
-        'Community management',
-        'Performance analytics',
-      ],
-    },
-    {
-      _id: '4',
-      title: 'Email Marketing',
-      description:
-        'Turn past customers into repeat buyers. Automated campaigns that nurture leads and drive sales.',
-      icon: 'Mail',
-      features: [
-        'Automated sequences',
-        'Newsletter campaigns',
-        'Win-back campaigns',
-      ],
-    },
-    {
-      _id: '5',
-      title: 'Website Design',
-      description:
-        'Beautiful websites that convert visitors into customers. Mobile-friendly, fast, and built to generate leads.',
-      icon: 'Monitor',
-      features: ['Custom design', 'SEO optimized', 'Conversion focused'],
-    },
-    {
-      _id: '6',
-      title: 'Meta Ads',
-      description:
-        'Reach your ideal customers where they spend their time. Targeted campaigns that drive real leads.',
-      icon: 'Target',
-      features: [
-        'Audience targeting',
-        'Retargeting campaigns',
-        'Lead generation ads',
-      ],
-    },
-  ],
-  stats: [
-    { value: '127%', label: 'Avg. Lead Increase' },
-    { value: '4.2x', label: 'Return on Ad Spend' },
-    { value: '#1', label: 'Google Rankings' },
-    { value: '50+', label: 'Happy Clients' },
-  ],
-  caseStudies: [
-    {
-      _id: '1',
-      title: 'Luxe Aesthetics',
-      client: 'Luxe Aesthetics',
-      industry: 'Med Spa',
-      description:
-        'LocalLeap transformed our marketing. We went from struggling to fill our calendar to having a 3-week waitlist.',
-      metrics: [
-        { label: 'Monthly Leads', before: '12', after: '47', improvement: '+292%' },
-        { label: 'Google Ranking', before: '#8', after: '#1', improvement: '' },
-        { label: 'Revenue Growth', before: '', after: '+186%', improvement: '' },
-      ],
-      slug: 'luxe-aesthetics',
-    },
-    {
-      _id: '2',
-      title: 'Elite Comfort HVAC',
-      client: 'Elite Comfort Systems',
-      industry: 'HVAC',
-      description:
-        'Best marketing investment we\'ve ever made. The ROI speaks for itself - we 5x\'d our ad spend in the first month.',
-      metrics: [
-        { label: 'Cost per Lead', before: '$89', after: '$31', improvement: '-65%' },
-        { label: 'Monthly Calls', before: '23', after: '78', improvement: '+239%' },
-        { label: 'ROAS', before: '', after: '5.2x', improvement: '' },
-      ],
-      slug: 'elite-comfort-hvac',
-    },
-    {
-      _id: '3',
-      title: 'Bright Smile Dental',
-      client: 'Bright Smile Dental',
-      industry: 'Dental',
-      description:
-        'Finally, a marketing partner who understands our industry. New patient numbers have never been better.',
-      metrics: [
-        { label: 'New Patients/mo', before: '18', after: '52', improvement: '+189%' },
-        { label: 'Reviews', before: '89', after: '312', improvement: '+251%' },
-        { label: 'Revenue Growth', before: '', after: '+94%', improvement: '' },
-      ],
-      slug: 'bright-smile-dental',
-    },
-  ],
-  testimonials: [
-    {
-      _id: '1',
-      name: 'Michael Rodriguez',
-      role: 'Owner',
-      company: 'Elite Comfort HVAC',
-      content:
-        "We've worked with several marketing agencies before. LocalLeap is the first one that actually delivered on their promises. Our phone hasn't stopped ringing.",
-      rating: 5,
-    },
-    {
-      _id: '2',
-      name: 'Sarah Kim',
-      role: 'Founder',
-      company: 'Luxe Aesthetics Med Spa',
-      content:
-        'From our very first call, I knew these guys were different. They asked questions about my business that no other agency ever asked. The results speak for themselves.',
-      rating: 5,
-    },
-    {
-      _id: '3',
-      name: 'Dr. James Patterson',
-      role: 'Owner',
-      company: 'Bright Smile Dental',
-      content:
-        'I was skeptical about hiring another marketing company after being burned twice. LocalLeap restored my faith. Transparent, honest, and they actually get results.',
-      rating: 5,
-    },
-  ],
-  pricing: [
-    {
-      _id: '1',
-      name: 'Starter',
-      price: 1500,
-      description:
-        'Perfect for businesses just getting started with digital marketing.',
-      features: [
-        'Google Business Profile management',
-        '12 social posts/month (2 platforms)',
-        'Monthly performance report',
-        'Email support',
-      ],
-      highlighted: false,
-      ctaText: 'Get Started',
-      ctaHref: '#contact',
-    },
-    {
-      _id: '2',
-      name: 'Growth',
-      price: 2500,
-      description:
-        'Our most popular package for established businesses ready to grow.',
-      features: [
-        'Everything in Starter, plus:',
-        'Google Ads management',
-        'Local SEO campaign',
-        '20 social posts/month (3 platforms)',
-        '1 blog post/month',
-        'Bi-weekly strategy calls',
-      ],
-      highlighted: true,
-      highlightLabel: 'MOST POPULAR',
-      ctaText: 'Get Started',
-      ctaHref: '#contact',
-    },
-    {
-      _id: '3',
-      name: 'Scale',
-      price: 4000,
-      description: 'For businesses ready to dominate their market completely.',
-      features: [
-        'Everything in Growth, plus:',
-        'Meta Ads (Facebook/Instagram)',
-        '30 social posts/month',
-        '4 blog posts/month',
-        'Email marketing (2 campaigns/mo)',
-        'Weekly strategy calls',
-      ],
-      highlighted: false,
-      ctaText: 'Get Started',
-      ctaHref: '#contact',
-    },
-  ],
-  faqs: [
-    {
-      _id: '1',
-      question: 'How quickly will I see results?',
-      answer:
-        'Most clients see initial results within 30 days. Google Ads typically shows results within the first week. SEO and organic efforts take 3-6 months to fully mature, but you\'ll see incremental improvements along the way.',
-    },
-    {
-      _id: '2',
-      question: 'Do you require long-term contracts?',
-      answer:
-        'No. We believe in earning your business every month. We have a 3-month minimum commitment to allow enough time to show results, then it\'s month-to-month with 30-day cancellation notice.',
-    },
-    {
-      _id: '3',
-      question: 'What industries do you work with?',
-      answer:
-        'We specialize in local service businesses: dental offices, med spas, HVAC, plumbing, roofing, law firms, gyms, restaurants, auto repair, and similar industries. If you serve customers in a specific geographic area, we can likely help.',
-    },
-    {
-      _id: '4',
-      question: 'What about ad spend - is that included?',
-      answer:
-        'Our fees cover management and strategy. Ad spend (what you pay Google or Facebook directly) is separate and paid by you directly to the platform. We typically recommend starting with $1,000-2,000/month in ad spend.',
-    },
-    {
-      _id: '5',
-      question: 'How do you communicate with clients?',
-      answer:
-        "You'll have a dedicated point of contact. We communicate via email and scheduled calls (frequency depends on your package). Premium clients get Slack access for faster communication.",
-    },
-  ],
-  process: [
-    {
-      title: 'Discovery Call',
-      description:
-        'We learn about your business, goals, and challenges. Free, no pressure.',
-    },
-    {
-      title: 'Custom Strategy',
-      description:
-        'We build a marketing plan tailored to your specific market and competition.',
-    },
-    {
-      title: 'Launch & Optimize',
-      description:
-        'We execute the strategy and continuously optimize for better results.',
-    },
-    {
-      title: 'Watch It Grow',
-      description:
-        'See more customers, more revenue, and more time back in your schedule.',
-    },
-  ],
-};
+  {
+    title: 'Local SEO',
+    slug: 'local-seo',
+    shortDescription: 'Show up when locals search for what you do.',
+    description:
+      'Most of your customers will find you through Google. Local SEO makes sure you show up in the map pack and local results when they search.',
+    whatYouGet: [
+      'Google Business Profile optimization',
+      'Local citation building',
+      'Review generation strategy',
+      'On-page SEO for local keywords',
+      'Monthly ranking reports',
+    ],
+  },
+  {
+    title: 'Social Media',
+    slug: 'social-media',
+    shortDescription: 'Stay visible to your community.',
+    description:
+      'You don\'t need to go viral. You need to stay top of mind with the people in your area. Consistent, relevant posts that remind people you exist.',
+    whatYouGet: [
+      'Content planning and strategy',
+      'Post creation and scheduling',
+      'Community engagement',
+      'Monthly performance review',
+    ],
+  },
+  {
+    title: 'Website Design',
+    slug: 'website-design',
+    shortDescription: 'A website that actually brings in business.',
+    description:
+      'Most local business websites are either outdated or built for looks, not leads. I build simple, fast websites designed to turn visitors into customers.',
+    whatYouGet: [
+      'Custom design that fits your business',
+      'Mobile-friendly and fast',
+      'Clear calls to action',
+      'Basic SEO setup',
+      'Easy to update yourself',
+    ],
+  },
+];
+
+// How you work - be honest about your process
+export const workProcess = [
+  {
+    step: 1,
+    title: 'We Talk',
+    description:
+      'A 30-minute call where I learn about your business, your goals, and what you\'ve tried before. No pitch, just conversation.',
+  },
+  {
+    step: 2,
+    title: 'I Dig In',
+    description:
+      'I look at your current online presence, your competitors, and your market. Then I put together a straightforward plan.',
+  },
+  {
+    step: 3,
+    title: 'We Decide',
+    description:
+      'I walk you through what I\'d recommend and why. You decide if it makes sense. No pressure.',
+  },
+  {
+    step: 4,
+    title: 'I Get to Work',
+    description:
+      'If we move forward, I handle the execution. You get regular updates and can always reach me with questions.',
+  },
+];
+
+// FAQs - honest answers
+export const faqs = [
+  {
+    question: 'How much does this cost?',
+    answer:
+      'It depends on what you need. Most clients spend between $1,500-3,000/month for ongoing marketing. One-time projects like website design start around $3,000. I\'ll give you a clear quote after we talk.',
+  },
+  {
+    question: 'Do you lock people into contracts?',
+    answer:
+      'No long-term contracts. I ask for a 3-month minimum to give things time to work, then it\'s month-to-month. If I\'m not delivering, you can leave.',
+  },
+  {
+    question: 'How quickly will I see results?',
+    answer:
+      'Google Ads can start bringing leads within days. SEO takes longer - usually 3-6 months to see real movement. I\'ll set realistic expectations upfront.',
+  },
+  {
+    question: 'What industries do you work with?',
+    answer:
+      'Local service businesses - dentists, med spas, HVAC, plumbers, lawyers, gyms. If you serve customers in a specific area, we should talk.',
+  },
+  {
+    question: 'Will I own everything you create?',
+    answer:
+      'Yes. Your website, your ad accounts, your content - it\'s all yours. If we stop working together, you keep everything.',
+  },
+];

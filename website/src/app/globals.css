@@ -1,25 +1,26 @@
 @import "tailwindcss";
 
 @theme inline {
-  /* Primary color - Sky blue */
-  --color-primary-50: #f0f9ff;
-  --color-primary-100: #e0f2fe;
-  --color-primary-200: #bae6fd;
-  --color-primary-300: #7dd3fc;
-  --color-primary-400: #38bdf8;
-  --color-primary-500: #0ea5e9;
-  --color-primary-600: #0284c7;
-  --color-primary-700: #0369a1;
-  --color-primary-800: #075985;
-  --color-primary-900: #0c4a6e;
+  /* Warm neutral palette - feels trustworthy, not startup-y */
+  --color-stone-50: #fafaf9;
+  --color-stone-100: #f5f5f4;
+  --color-stone-200: #e7e5e4;
+  --color-stone-300: #d6d3d1;
+  --color-stone-400: #a8a29e;
+  --color-stone-500: #78716c;
+  --color-stone-600: #57534e;
+  --color-stone-700: #44403c;
+  --color-stone-800: #292524;
+  --color-stone-900: #1c1917;
 
-  /* Accent color - Violet */
-  --color-accent-400: #a78bfa;
-  --color-accent-500: #8b5cf6;
-  --color-accent-600: #7c3aed;
+  /* Single accent - warm amber, not tech-blue */
+  --color-accent-500: #b45309;
+  --color-accent-600: #92400e;
+  --color-accent-700: #78350f;
 
-  /* Font family */
+  /* Font families - editorial feel */
   --font-sans: "Inter", system-ui, sans-serif;
+  --font-serif: "Georgia", "Times New Roman", serif;
 }
 
 /* Base styles */
@@ -31,31 +32,23 @@ body {
   font-family: var(--font-sans);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  color: var(--color-stone-800);
+  background-color: var(--color-stone-50);
 }
 
-/* Custom utilities */
-@layer utilities {
-  .gradient-text {
-    @apply bg-gradient-to-r from-primary-500 to-accent-500 bg-clip-text text-transparent;
-  }
-
-  .gradient-bg {
-    @apply bg-gradient-to-r from-primary-500 to-accent-500;
-  }
+/* Editorial typography */
+.font-serif {
+  font-family: var(--font-serif);
 }
 
-/* Animations */
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+/* Simple link underline style */
+.link-underline {
+  text-decoration: underline;
+  text-decoration-color: var(--color-stone-300);
+  text-underline-offset: 4px;
+  transition: text-decoration-color 0.2s;
 }
 
-.animate-fadeIn {
-  animation: fadeIn 0.6s ease-out;
+.link-underline:hover {
+  text-decoration-color: var(--color-stone-800);
 }
